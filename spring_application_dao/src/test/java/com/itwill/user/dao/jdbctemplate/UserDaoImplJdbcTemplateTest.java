@@ -15,7 +15,7 @@ import org.springframework.dao.DuplicateKeyException;
 class UserDaoImplJdbcTemplateTest {
 	@Autowired
 	UserDao userDao;
-
+	
 	@Test
 	void testCreate() {
 		User user=new User("jdbctemplate34", "1111", "제이디비씨", "jdbc@jdbc.com");
@@ -24,31 +24,31 @@ class UserDaoImplJdbcTemplateTest {
 			assertEquals(rowCount, 1);
 		} catch (Exception e) {
 			//fail(e.getMessage());
-			assertInstanceOf(DuplicateKeyException.class, e);
-		}	
+			assertInstanceOf(DuplicateKeyException.class,e);
+		}
 	}
 	
-    @Disabled
+	@Disabled
 	@Test
 	void testUpdate() {
 		fail("Not yet implemented");
 	}
-    @Disabled
+	@Disabled
 	@Test
 	void testRemove() {
 		fail("Not yet implemented");
 	}
-    @Disabled
+	@Disabled
 	@Test
 	void testFindUser() {
 		fail("Not yet implemented");
 	}
-    @Disabled
+	@Disabled
 	@Test
 	void testFindUserList() {
 		fail("Not yet implemented");
 	}
-    @Disabled
+	@Disabled
 	@Test
 	void testExistedUser() {
 		fail("Not yet implemented");

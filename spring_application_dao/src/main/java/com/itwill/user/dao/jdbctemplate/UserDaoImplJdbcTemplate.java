@@ -7,18 +7,18 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 @Repository
 public class UserDaoImplJdbcTemplate implements UserDao {
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
-    
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
 	@Override
 	public int create(User user) throws Exception {
 		
 		return jdbcTemplate.update(
-				            UserSQL.USER_INSERT,
-				            user.getUserId(),
-				            user.getPassword(),
-				            user.getName(),
-				            user.getEmail());
+				UserSQL.USER_INSERT,
+				user.getUserId(),
+				user.getPassword(),
+				user.getName(),
+				user.getEmail());
 	}
 
 	@Override

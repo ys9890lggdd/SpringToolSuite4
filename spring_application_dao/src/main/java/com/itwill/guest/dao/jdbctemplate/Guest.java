@@ -22,11 +22,11 @@ public class Guest {
 	private int guestNo;
 	private String guestName;
 	private String guestDate;
-	private String guesEmail;
+	private String guestEmail;
 	private String guestHomepage;
 	private String guestTitle;
 	private String guestContent;
 
 	
 	
-}	
+}

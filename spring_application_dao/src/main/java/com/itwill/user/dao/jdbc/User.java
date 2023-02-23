@@ -14,12 +14,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class User {
-	
 	private String userId;
 	private String password;
 	private String name;
 	private String email;
-	
 	
 	/*
 	 *패쓰워드 일치여부 검사 
@@ -31,5 +29,13 @@ public class User {
 		}
 		return isMatch;
 	}
+	
 
 }
+
+
+
+
+
+
+

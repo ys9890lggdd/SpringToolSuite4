@@ -1,17 +1,17 @@
 package com.itwill.guest.dao.jdbctemplate;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Types;
 import java.util.List;
 import java.util.Map;
-
-import javax.swing.tree.RowMapper;
-import javax.swing.tree.TreePath;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 @SpringBootApplication
 public class SpringBootJdbcTemplateMain {
@@ -30,11 +30,11 @@ public class SpringBootJdbcTemplateMain {
 		 * select --> queryForObject 반환타입[String,Wrapper,DTO]
 		 **********************************************************/
 		/*
-		 * queryForObject[반환타입 DTO]
+		 * queryForObject[반환타입 Guest]
 		 */
 		String selectDtoSql="select * from guest where guest_no=?";
-		Object[] paramArray1 = {281};
-		Object[] paramArray2 = new Object[]{281};
+		Object[] paramArray1 = {263};
+		Object[] paramArray2 = new Object[]{263};
 		
 		/*
 		 << BeanPropertyRowMapper 클래스 >>
@@ -43,7 +43,7 @@ public class SpringBootJdbcTemplateMain {
 		 	 Guest객체의 property(멤버변수)에 대입해주는클래스 
 		 */
 		BeanPropertyRowMapper<Guest> guestBeanPropertyRowMapper=
-				new BeanPropertyRowMapper<Guest>(Guest.class);	
+				new BeanPropertyRowMapper<Guest>(Guest.class);
 		/*
 		RowMapper<Guest> guestMapper=new RowMapper<Guest>() {
 			@Override
@@ -53,21 +53,21 @@ public class SpringBootJdbcTemplateMain {
 				return guest;
 			}
 		};
-		*/		
+		*/
 		
 		Guest guest = jdbcTemplate.queryForObject(selectDtoSql,
 												 new Object[]{264},
 												 new int[] {Types.INTEGER},
 												 guestBeanPropertyRowMapper);
-		System.out.println("queryForObject[Guest]:"+guest);
+		System.out.println("--> queryForObject[Guest]:"+guest);
 		/*
-		 *queryForObject[반환타입 String Wrapper] 
+		 * queryForObject[반환타입 String Wrapper]
 		 */
 		String selectStringSql="select guest_name from guest where guest_no=?";
 		String guest_name = jdbcTemplate.queryForObject(selectStringSql,
-				                                        new Object[] {264} ,
-				                                        new int[] {Types.INTEGER},
-				                                        String.class);
+														new Object[] {264} ,
+														new int[] {Types.INTEGER},
+														String.class);
 		System.out.println("--> queryForObject[String]:"+guest_name);
 		
 		
@@ -79,7 +79,7 @@ public class SpringBootJdbcTemplateMain {
 		 */
 		String selectDtoListSql="select * from guest";
 		List<Guest> guestList = jdbcTemplate.query(selectDtoListSql,guestBeanPropertyRowMapper);
-		System.out.println("query[List<Guest>]:"+guestList);
+		System.out.println("--> query[List<Guest>]:"+guestList);
 		/*************************************************************
 		 * select --> queryForList 반환타입[List<String,Wrapper>]
 		 ************************************************************/
@@ -88,14 +88,14 @@ public class SpringBootJdbcTemplateMain {
 		System.out.println("--> queryForList[List<String>]:"+guest_nameList);
 		
 		/*************************************************************
-		 * select --> queryForList 반환타입[Map<String,Object >>]
+		 * select --> queryForMap 반환타입[Map<String,Object>]
 		 ************************************************************/
 		String selectMapSql="select * from guest where guest_no=?";
 		Map rowMap=jdbcTemplate.queryForMap(selectMapSql,new Object[] {264},new int[] {Types.INTEGER});
 		System.out.println("--> queryForMap 반환타입[Map<String,Object>]:"+rowMap);
 		
 		String selectMapListSql="select * from guest";
-		List rowMapList=jdbcTemplate.queryForList(selectMapListSql);		
+		List rowMapList=jdbcTemplate.queryForList(selectMapListSql);
 		System.out.println("--> queryForList 반환타입[List<Map<String,Object>>]:"+rowMapList);
 		
 		/*****************************************************************

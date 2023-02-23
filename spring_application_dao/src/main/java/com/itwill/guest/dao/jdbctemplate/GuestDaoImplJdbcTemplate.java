@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 public class GuestDaoImplJdbcTemplate implements GuestDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-
+	
 	@Override
 	public List<Guest> selectAll() throws Exception {
 		// TODO Auto-generated method stub
