@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.itwill.guest.GuestDao;
+import com.itwill.guest.dao.jdbc.GuestDao;
 @SpringBootTest
 class SpringBootDataSourceApplicationMainTest {
 	@Autowired
