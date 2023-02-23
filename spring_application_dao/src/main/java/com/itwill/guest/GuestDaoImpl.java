@@ -10,31 +10,21 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
-/*
-이름             널?       유형             
--------------- -------- -------------- 
-GUEST_NO       NOT NULL NUMBER(10)     
-GUEST_NAME     NOT NULL VARCHAR2(50)   
-GUEST_DATE     NOT NULL DATE           
-GUEST_EMAIL             VARCHAR2(50)   
-GUEST_HOMEPAGE          VARCHAR2(50)   
-GUEST_TITLE    NOT NULL VARCHAR2(100)  
-GUEST_CONTENT  NOT NULL VARCHAR2(4000) 
-*/
 
+@Repository
 public class GuestDaoImpl implements GuestDao {
-	
+	//@Autowired
 	private DataSource dataSource;
 	
 	public GuestDaoImpl() {
 		System.out.println("2.#### GuestDaoImpl() 기본생성자호출");
 	}
-	
+	@Autowired
 	public GuestDaoImpl(DataSource dataSource) {
 		System.out.println("2.#### GuestDaoImpl(DataSource dataSource) 생성자호출:"+this);
 		this.dataSource = dataSource;
 	}
-	
+	//@Autowired
 	public void setDataSource(DataSource dataSource) {
 		System.out.println("3.#### GuestDaoImpl.setDataSource(DataSource dataSource) 메쏘드호출");
 		this.dataSource = dataSource;
