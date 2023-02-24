@@ -30,6 +30,16 @@ public class StudentDao {
 	public List<Student> findAllStudents() {
 		return sqlSession.selectList("findAllStudents");
 	}
+	/*
+	 * B.select sql의결과타입이 String,Wrapper객체인경우 resultType : java.lang.String,java.lang.Integer
+	 */
+	public String findStudentNameById(Integer userId) {
+		return sqlSession.selectOne("findStudentNameById",userId);
+	}
+	public List<String> findStudentNameList() {
+		return sqlSession.selectList("findStudentNameList");
+	}
+	
 	/***********************************
 	 * INSERT
 	 ***********************************/
@@ -45,6 +55,28 @@ public class StudentDao {
 	public int insertStudentBySequence2(Student student) {
 		return sqlSession.insert("insertStudentBySequence2",student);
 	}
+	/***********************************
+	 * UPDATE
+	 ***********************************/
+	public int updateStudentById(Student student) {
+		return sqlSession.update("updateStudentById",student);
+	}
+	/***********************************
+	 * DELETE
+	 ***********************************/
+	public int deleteStudentById(Integer studId) {
+		return sqlSession.delete("deleteStudentById",studId);
+	}
+
+	public int deleteStudentByName(String name) {
+		return 0;
+	}
+
+	public int deleteStudentByNameLike(String name) {
+		return 0;
+	}
+
+	
 	
 	
 	
@@ -61,28 +93,8 @@ public class StudentDao {
 		return null;
 	}
 
-	/***********************************
-	 * DELETE
-	 ***********************************/
-	public int deleteStudentById(Integer studId) {
-		return 0;
-	}
-
-	public int deleteStudentByName(String name) {
-		return 0;
-	}
-
-	public int deleteStudentByNameLike(String name) {
-		return 0;
-	}
-
-	/***********************************
-	 * UPDATE
-	 ***********************************/
-	public int updateStudentById(Student student) {
-		return 0;
-
-	}
+	
+	
 
 	
 
@@ -120,16 +132,7 @@ public class StudentDao {
 
 	
 
-	/*
-	 * select sql의결과타입이 Wrapper,String 객체인경우 resultType : Wrapper,String
-	 */
-	public String findStudentNameById(Integer userId) {
-		return null;
-	}
-
-	public List<String> findStudentNameList() {
-		return null;
-	}
+	
 
 	/*
 	 * B.select sql의결과타입이 DTO,VO,Domain객체인경우 resultMap : DTO,VO,Domain

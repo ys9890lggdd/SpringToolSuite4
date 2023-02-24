@@ -1,5 +1,6 @@
 package com.itwill.guest.dao.jdbctemplate;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 class GuestDaoImplJdbcTemplateTest {
 	@Autowired
@@ -24,10 +26,13 @@ class GuestDaoImplJdbcTemplateTest {
 	void testSelectByNo() {
 		fail("Not yet implemented");
 	}
-	@Disabled
+	@Transactional
 	@Test
-	void testInsertGuest() {
-		fail("Not yet implemented");
+	void testInsertGuest() throws Exception{
+		int rowCount =
+				           guestDao.insertGuest(new Guest(0, "name", "2022", "email@email.com", "homepage", "title", "content"));
+		assertEquals(1, rowCount);
+		
 	}
 	@Disabled
 	@Test
