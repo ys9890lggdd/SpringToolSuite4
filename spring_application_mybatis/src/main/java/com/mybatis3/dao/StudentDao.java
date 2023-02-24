@@ -1,25 +1,55 @@
 package com.mybatis3.dao;
 
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mybatis3.domain.Student;
 
-
+@Repository
 public class StudentDao {
-	
+	@Autowired
+	private SqlSession sqlSession;
 	
 	public StudentDao() {
 	}
+	/**************************************************
+	 * SELECT
+	 **************************************************/
+	/*
+	 * A.select sql의결과타입이 DTO,VO,Domain객체인경우 resultType : DTO,VO,Domain
+	 */
+	public Student findStudentById(Integer studId) {
+		return sqlSession.selectOne("findStudentById", studId);
+	}
+
+	public List<Student> findAllStudents() {
+		return sqlSession.selectList("findAllStudents");
+	}
+	/***********************************
+	 * INSERT
+	 ***********************************/
+	public int insertStudent(Student student) {
+		return sqlSession.insert("insertStudent",student);
+	}
+	public int insertStudentBySequence1(Student student) {
+		return sqlSession.insert("insertStudentBySequence1",student);
+	}
+	/*
+	 * sequence실행후 PK return
+	 */
+	public int insertStudentBySequence2(Student student) {
+		return sqlSession.insert("insertStudentBySequence2",student);
+	}
+	
+	
+	
+	
+	
 	/**************************************************
 	 * 결과데이타를 Map(HashMap)에 담아서 반환할수있다
 	 ***************************************************/
@@ -54,23 +84,9 @@ public class StudentDao {
 
 	}
 
-	/***********************************
-	 * INSERT
-	 ***********************************/
-	public int insertStudent(Student student) {
-		return 0;
-	}
+	
 
-	public int insertStudentBySequence1(Student student) {
-		return 0;
-	}
-
-	/*
-	 * sequence실행후 PK return
-	 */
-	public int insertStudentBySequence2(Student student) {
-		return 0;
-	}
+	
 
 	/**************************************************
 	 * SELECT[students + address + courses[course_enrollment] JOIN( 1 : 1 : N )
@@ -102,19 +118,7 @@ public class StudentDao {
 		return null;
 	}
 
-	/**************************************************
-	 * SELECT
-	 **************************************************/
-	/*
-	 * A.select sql의결과타입이 DTO,VO,Domain객체인경우 resultType : DTO,VO,Domain
-	 */
-	public Student findStudentById(Integer studId) {
-		return null;
-	}
-
-	public List<Student> findAllStudents() {
-		return null;
-	}
+	
 
 	/*
 	 * select sql의결과타입이 Wrapper,String 객체인경우 resultType : Wrapper,String
