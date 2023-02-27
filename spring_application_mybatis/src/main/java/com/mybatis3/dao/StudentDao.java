@@ -76,15 +76,17 @@ public class StudentDao {
 		return 0;
 	}
 	/**************************************************
-	 * 결과데이타를 Map(HashMap)에 담아서 반환할수있다
-	 ***************************************************/
-	public Map findStudentByIdMap(Integer studId) {
-		return null;
+	 * SELECT[students + addresses JOIN]( 1 : 1 )
+	 **************************************************/
+	/*
+	 * select sql의결과타입이 DTO,VO,Domain객체인경우 
+	 * resultMap : studentWithAddressResultMap
+	 */
+	public Student findStudentByIdWithAddress(Integer studId) {
+		return studentMapper.findStudentByIdWithAddress(studId);
 	}
-
-	public List<Map> findAllStudentsMapList() {
-		return null;
-	}
+	
+	
 	/**************************************************
 	 * SELECT[students + address + courses[course_enrollment] JOIN( 1 : 1 : N )
 	 **************************************************/
@@ -105,15 +107,7 @@ public class StudentDao {
 		return null;
 	}
 
-	/**************************************************
-	 * SELECT[students + addresses JOIN]( 1 : 1 )
-	 **************************************************/
-	/*
-	 * select sql의결과타입이 DTO,VO,Domain객체인경우 resultMap : studentWithAddressResultMap
-	 */
-	public Student findStudentByIdWithAddress(Integer studId) {
-		return null;
-	}
+	
 
 	
 
@@ -138,6 +132,16 @@ public class StudentDao {
 	}
 	public int updateStudentParamMap(Map studentMap) {
 		return 0;
+	}
+	/**************************************************
+	 * 결과데이타를 Map(HashMap)에 담아서 반환할수있다
+	 ***************************************************/
+	public Map findStudentByIdMap(Integer studId) {
+		return null;
+	}
+
+	public List<Map> findAllStudentsMapList() {
+		return null;
 	}
 
 }

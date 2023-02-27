@@ -2,8 +2,11 @@ package com.mybatis3.dao.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectKey;
 
 import com.mybatis3.domain.Student;
 @Mapper
@@ -21,8 +24,27 @@ public interface StudentMapper {
 	public String findStudentNameById(Integer student);	
 	public List<String> findStudentNameList();	
 	public int insertStudent(Student student);
-	public int insertStudentBySequence1(Student student);	
-	public int insertStudentBySequence2(Student student);
+	public int insertStudentBySequence1(Student student);
+	
+	/*
+	<insert id="insertStudentBySequence2" 
+			parameterType="com.mybatis3.domain.Student">
+		<selectKey order="BEFORE"  resultType="int"  keyProperty="studId" >
+			select students_stud_id_seq.nextval from dual
+		</selectKey>
+		insert into students(stud_id,name,email,dob)
+			values (students_stud_id_seq.nextval,#{name},#{email},#{dob})
+	</insert>
+	*/
+	@SelectKey( statement = "select students_stud_id_seq.nextval from dual",
+			    before = true,
+			    keyProperty ="studId",
+			    resultType = Integer.class)
+	@Insert("insert into students(stud_id,name,email,dob) values (#{student.studId},#{student.name},#{student.email},#{student.dob})")
+	public int insertStudentBySequence2(@Param("student") Student student);
+	
 	public int updateStudentById(Student student);
 	public int deleteStudentById(Integer studId);
+	
+	public Student findStudentByIdWithAddress(Integer studId);	
 }
