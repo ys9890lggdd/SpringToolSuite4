@@ -11,11 +11,12 @@ import com.mybatis3.domain.Student;
 public class SpringBootMyBatisFlowMain {
 	public static void main(String[] args) throws Exception {
 		ApplicationContext appicationContext=
-				SpringApplication.run(SpringBootMyBatisFlowMain.class, args);
+				SpringApplication.run(SpringBootMyBatisFlowMain.class, args);		
 		/*
 		 * 1. SqlSession객체얻기
 		 */
 		SqlSession sqlSession=appicationContext.getBean(SqlSession.class);
+		
 		System.out.println("1. #### SqlSession객체얻기:"+sqlSession);
 		/*
 		 * 2. SqlSession사용(CRUD)
@@ -30,6 +31,6 @@ public class SpringBootMyBatisFlowMain {
 		List<Student> studentList = sqlSession.selectList("com.mybatis3.dao.mapper.StudentBasicMapper.studentList");
 		System.out.println("#### studentList:"+studentList);
 		
-	
+			
 	}
 }
