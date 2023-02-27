@@ -125,6 +125,16 @@ SELECT course_id, c.name, c.description, c.start_date, c.end_date,t.tutor_id, t.
       join tutors t
       on c.tutor_id=t.tutor_id
 where c.course_id = 1;
+     
+ /*
+tutors + courses join[ 1 : N ]
+ 강사정보 와 개설된강의들
+*/    
+select t.tutor_id,t.name as tutor_name,email,course_id,c.name as course_name,description,start_date,end_date
+from tutors t  
+join courses c 
+on t.tutor_id = c.tutor_id 
+where t.tutor_id=1;
       
       
 /*
@@ -150,11 +160,3 @@ SELECT * FROM COURSES
 WHERE TUTOR_ID = 1
 AND NAME LIKE '%Quick%'
 AND START_DATE >= TO_DATE('2015/05/01');
-      
-      
-      
-      
-      
-      
-      
-      
