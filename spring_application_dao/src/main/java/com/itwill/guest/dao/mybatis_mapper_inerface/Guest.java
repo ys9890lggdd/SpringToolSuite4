@@ -1,4 +1,4 @@
-package com.itwill.guest.dao.mybatis;
+package com.itwill.guest.dao.mybatis_mapper_inerface;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
