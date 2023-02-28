@@ -3,6 +3,7 @@ package com.mybatis3.dao;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -10,8 +11,9 @@ import org.springframework.context.ApplicationContext;
 import com.mybatis3.domain.Student;
 
 @SpringBootApplication
+@MapperScan(basePackages = "com.mybatis3.dao.mapper")
 public class SpringBootStudentDaoDMLMain {
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception{
 		ApplicationContext appicationContext=
 				SpringApplication.run(SpringBootStudentDaoDMLMain.class, args);
 		StudentDao studentDao=(StudentDao)appicationContext.getBean(StudentDao.class);
@@ -30,15 +32,15 @@ public class SpringBootStudentDaoDMLMain {
 		System.out.println("### row count:"+studentDao.insertStudentBySequence2(student3));
 		System.out.println("### pk-->"+student3.getStudId());
 		System.out.println("### "+student3.getStudId()+"번 pk student: "
-				+studentDao.findStudentById(student3.getStudId()));		
+				+studentDao.findStudentById(student3.getStudId()));
 		System.out.println("---------updateStudentById---------------------------");
 		Student updateStudent=studentDao.findStudentById(7);
 		updateStudent.setName("변경");
 		updateStudent.setEmail("change@naver.com");
-		updateStudent.setDob(new SimpleDateFormat("yyyy/MM/dd").parse("2000/02/02"));		
+		updateStudent.setDob(new SimpleDateFormat("yyyy/MM/dd").parse("2000/02/02"));
 		System.out.println("update row count:"+studentDao.updateStudentById(updateStudent));
 		System.out.println("---------deleteStudentById---------------------------");
-		System.out.println("update delete count:"+studentDao.deleteStudentById(10000));
+		System.out.println("delete row count:"+studentDao.deleteStudentById(10000));
 		
 		System.out.println("---------deleteStudentByName-------------------------");
 		System.out.println("---------deleteStudentByNameLike---------------------");

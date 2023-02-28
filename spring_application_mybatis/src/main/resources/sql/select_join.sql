@@ -160,3 +160,11 @@ SELECT * FROM COURSES
 WHERE TUTOR_ID = 1
 AND NAME LIKE '%Quick%'
 AND START_DATE >= TO_DATE('2015/05/01');
+      
+      
+      
+      
+      
+      
+      
+      

@@ -5,6 +5,9 @@ import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
 
@@ -19,10 +22,10 @@ public interface StudentMapper {
 	 * 메쏘드리턴타입은 StudentMapper.xml 파일의 resultType 와일치(ResultSet이 1개이상일경우는 List)
 	 */
 	
-	public Student findStudentById(Integer studId);	
-	public List<Student> findAllStudents();	
-	public String findStudentNameById(Integer student);	
-	public List<String> findStudentNameList();	
+	public Student  findStudentById(Integer studId);
+	public List<Student> findAllStudents();
+	public String findStudentNameById(Integer studId);
+	public List<String> findStudentNameList();
 	public int insertStudent(Student student);
 	public int insertStudentBySequence1(Student student);
 	
@@ -33,18 +36,46 @@ public interface StudentMapper {
 			select students_stud_id_seq.nextval from dual
 		</selectKey>
 		insert into students(stud_id,name,email,dob)
-			values (students_stud_id_seq.nextval,#{name},#{email},#{dob})
+			values (#{studId},#{name},#{email},#{dob})
 	</insert>
-	*/
-	@SelectKey( statement = "select students_stud_id_seq.nextval from dual",
-			    before = true,
-			    keyProperty ="studId",
-			    resultType = Integer.class)
-	@Insert("insert into students(stud_id,name,email,dob) values (#{student.studId},#{student.name},#{student.email},#{student.dob})")
-	public int insertStudentBySequence2(@Param("student") Student student);
+	 */
+	@SelectKey(	statement = "select students_stud_id_seq.nextval from dual",
+				before = true,
+				keyProperty ="studId",
+				resultType = Integer.class)
+	@Insert("insert into students(stud_id,name,email,dob) values (#{studId},#{name},#{email},#{dob})")
+	public int insertStudentBySequence2( Student student);
 	
 	public int updateStudentById(Student student);
 	public int deleteStudentById(Integer studId);
 	
-	public Student findStudentByIdWithAddress(Integer studId);	
+	
+	public Student findStudentByIdWithAddress(Integer studId);
+	
+	
+	/*
+	<select 	id="findStudentByIdWithCourses" 
+	 			parameterType="java.lang.Integer"
+	 			resultMap="studentWithCoursesResultMap">
+	 	select 	s.stud_id,s.name as student_name,email,dob,
+	 			c.course_id,c.name as course_name,description,start_date,end_date 
+		from students s 
+		join course_enrollment ce
+		on s.stud_id = ce.stud_id
+		join courses c
+		on ce.course_id=c.course_id where s.stud_id=#{studId}
+	 </select>
+	 */
+	@ResultMap("studentWithCoursesResultMap")
+	@Select("	select 	s.stud_id,s.name as student_name,email,dob,"
+			+ "	 			c.course_id,c.name as course_name,description,start_date,end_date "
+			+ "		from students s"
+			+ "		join course_enrollment ce"
+			+ "		on s.stud_id = ce.stud_id"
+			+ "		join courses c"
+			+ "		on ce.course_id=c.course_id where s.stud_id=#{studId}")
+	public Student findStudentByIdWithCourses(@Param("studId") Integer studId);
 }
+
+
+

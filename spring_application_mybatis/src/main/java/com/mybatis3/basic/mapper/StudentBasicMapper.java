@@ -15,9 +15,17 @@ public interface StudentBasicMapper {
 			resultType="com.mybatis3.domain.Student">
 		select stud_id ,name,email,dob from students where stud_id = #{studId}
 	</select>
-	*/
+	 */
 	@Select("select stud_id ,name,email,dob from students where stud_id = #{studId}")
 	public Student findStudent(@Param(value ="studId" ) Integer studId);
 	
 	public List<Student> studentList();
 }
+
+
+
+
+
+
+
+

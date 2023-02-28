@@ -22,16 +22,30 @@ public class SpringBootMyBatisMapperInterfaceFlowMain {
 		 * 1. StudentBasicMapper객체얻기
 		 *    - com.mybatis3.dao.mapper.StudentBasicMapper인터페이스를구현한객체얻기
 		 */
-		StudentBasicMapper studentBasicMapper =
+		StudentBasicMapper studentBasicMapper = 
 				(StudentBasicMapper)appicationContext.getBean(StudentBasicMapper.class);
 		System.out.println("1. #### StudentBasicMapper객체얻기:"+studentBasicMapper);
 		/*
 		 * 2. StudentBasicMapper사용(CRUD)
 		 * 	  -com.mybatis3.dao.mapper.StudentBasicMapper인터페이스를 구현한객체의메쏘드호출
 		 */
-		System.out.println("#### findStudent:"+studentBasicMapper.findStudent(1));		
+		
+		System.out.println("#### findStudent:"+studentBasicMapper.findStudent(1));
 		System.out.println("#### studentList:"+studentBasicMapper.studentList());
 	
 	
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

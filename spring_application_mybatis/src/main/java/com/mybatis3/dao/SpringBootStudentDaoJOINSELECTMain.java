@@ -13,9 +13,11 @@ public class SpringBootStudentDaoJOINSELECTMain {
 				SpringApplication.run(SpringBootStudentDaoJOINSELECTMain.class, args);
 		StudentDao studentDao=(StudentDao)appicationContext.getBean(StudentDao.class);
 		System.out.println("---------findStudentByIdWithAddress------------------");
-		System.out.println(studentDao.findStudentNameById(1));
-		System.out.println(studentDao.findStudentNameById(7));
+		System.out.println(studentDao.findStudentByIdWithAddress(1));
+		System.out.println(studentDao.findStudentByIdWithAddress(7));
 		System.out.println("---------findStudentByIdWithCourses------------------");
+		System.out.println(studentDao.findStudentByIdWithCourses(1));
+		System.out.println(studentDao.findStudentByIdWithCourses(7));
 		System.out.println("---------findStudentByIdWithAddressWithCourses-------");
 		
 		

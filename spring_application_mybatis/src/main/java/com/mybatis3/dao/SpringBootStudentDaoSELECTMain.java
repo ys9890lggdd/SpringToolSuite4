@@ -22,9 +22,9 @@ public class SpringBootStudentDaoSELECTMain {
 		System.out.println(studentDao.findStudentNameList());
 		System.out.println("---------findStudentByIdResultMap--------------------");
 		System.out.println("---------findAllStudentsResultMap--------------------");
-	
 		
 		
-				
+		
+		
 	}
 }
