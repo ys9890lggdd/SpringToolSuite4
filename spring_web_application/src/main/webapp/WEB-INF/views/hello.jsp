@@ -10,9 +10,9 @@
 <body>
 <h1>hello.jsp</h1><hr>
 <ol>
-	<li>/hello.do요청</li>
+	<li>/hello요청</li>
 	<li>
-		DispatcherServlet이 HandlerMapping객체로부터 요청url [/hello.do]에 해당하는 HelloController객체얻기
+		DispatcherServlet이 HandlerMapping객체로부터 요청url [/hello]에 해당하는 HelloController객체얻기
 	</li>
 	<li>
 	    DispatcherServlet이 HelloController객체의 handleRequest메쏘드호출<br>
