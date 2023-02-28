@@ -2,6 +2,11 @@ package com.itwill.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.itwill.dto.Guest;
 
 @Controller
 public class RequestParamModelAttributeController {
@@ -10,9 +15,14 @@ public class RequestParamModelAttributeController {
 		return "forward:/WEB-INF/views/guest_write_form.jsp";
 	}
 	
-	
-	public String parameter_guest_write_action() {
-		
+	@PostMapping("/parameter_guest_write_action")
+	public String parameter_guest_write_action(@RequestParam String guest_name,
+	                                           @RequestParam String guest_email,
+			                                   @RequestParam String guest_homepage,
+			                                   @RequestParam String guest_title,
+			                                   @RequestParam String guest_content
+			                                   ) {
+				
 		/*
 		<< 방명록쓰기 >>
 		  << @RequestParam("guest_name") String name >>
@@ -23,15 +33,17 @@ public class RequestParamModelAttributeController {
 			  String guest_title = request.getParameter("guest_title");
 			  String guest_content = request.getParameter("guest_content");
 		 */
-		
-	
+		Guest guest=new Guest(0, guest_name, null, guest_email, guest_homepage, guest_title, guest_content);
+		System.out.println("### @RequestParam ####");
+		System.out.println("### insertGuest:"+guest);	
 		/*
 		 * GuestService 메쏘드호출
 		 */
-		return "";
+		return "forward:/WEB-INF/views/guest_write_result.jsp";
+		
 	}
-	
-	public String model_attribute_guest_write_action() {
+	@PostMapping("/model_attribute_guest_write_action")
+	public String model_attribute_guest_write_action(@ModelAttribute Guest guest) {
 		
 		/*
 		 << 방명록쓰기 >>
@@ -61,7 +73,7 @@ public class RequestParamModelAttributeController {
 		      request.setAttribute("guest",guest);
 		 */
 	
-		return "";
+		return "forward:/WEB-INF/views/guest_write_result.jsp";
 	}
 	
 	
