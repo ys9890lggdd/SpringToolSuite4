@@ -1,15 +1,15 @@
 package com.itwill.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.GetMapping;
 
-import com.itwill.dto.Guest;
-
-
+@Controller
 public class RequestParamModelAttributeController {
+	@GetMapping("parameter_guest_write_form")
+	public String parameter_guest_write_form() {
+		return "forward:/WEB-INF/views/guest_write_form.jsp";
+	}
+	
 	
 	public String parameter_guest_write_action() {
 		
