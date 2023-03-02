@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import com.itwill.controller.HelloController;
 
 @Configuration
-//@EnableWebMvc
+
 public class WebConfig implements WebMvcConfigurer{
 	
 	@Override
@@ -27,13 +27,21 @@ public class WebConfig implements WebMvcConfigurer{
 		 //registry.jsp("/WEB-INF/views",".jsp");
 	}
 	/************************spring mvc객체등록*****************************/
+	//ViewResolver등록
 	@Bean
 	public BeanNameViewResolver beanNameViewResolver() {
 		BeanNameViewResolver beanNameViewResolver=new BeanNameViewResolver();
 		beanNameViewResolver.setOrder(0);
 		return beanNameViewResolver;
 	}
-	
+	@Bean
+	public InternalResourceViewResolver internalResourceViewResolver() {
+		InternalResourceViewResolver internalResourceViewResolver=new InternalResourceViewResolver();
+		internalResourceViewResolver.setPrefix("/WEB-INF/views/");
+		internalResourceViewResolver.setSuffix(".jsp");
+		internalResourceViewResolver.setOrder(1);
+		return internalResourceViewResolver;
+	}
 	
 	
 	/*
