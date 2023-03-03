@@ -76,7 +76,7 @@ public class GuestController {
 	}
 	@PostMapping("/guest_write_action")
 	public String guest_write_action(@ModelAttribute Guest guest,
-			                         RedirectAttributes redirectAttributes)throws Exception {
+									RedirectAttributes redirectAttributes)throws Exception {
 		int guest_no = guestService.insertGuest(guest);
 		redirectAttributes.addAttribute("guest_no",guest_no);
 		return "redirect:guest_view";
@@ -103,16 +103,3 @@ public class GuestController {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
