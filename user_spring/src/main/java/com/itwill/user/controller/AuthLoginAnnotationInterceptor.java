@@ -10,6 +10,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 /*
 ①HandlerInterceptor 인터페이스
 ②HandlerInterceptorAdapter 추상클래스
+
 	- public boolean preHandle(HttpServletRequest request, HttpServletResponse response,Object handler)
      	Controller 요청 전 실행
 	
@@ -37,10 +38,10 @@ public class AuthLoginAnnotationInterceptor implements HandlerInterceptor {
 			HandlerMethod는 그 자체가 실행가능한 객체가 아니라 메소드를 실행하기 위해 필요한 
 			참조정보를 담고 있는 객체 로써 다음과 같은 정보들을 가지고 있다.
 				- @Controller가붙은 컨트롤러 빈정보
-				- @RequestMapping이 붙은 메소드 메타정보
-				- @RequestMapping이 붙은 메소드 파라미터 메타정보
-				- @RequestMapping이 붙은 메소드 어노테이션 메타정보
-				- @RequestMapping이 붙은 메소드 리턴 값 메타정보
+				- @RequestMapping[@GetMapping,@PostMapping]이 붙은 메소드 메타정보
+				- @RequestMapping[@GetMapping,@PostMapping]이 붙은 메소드 파라미터 메타정보
+				- @RequestMapping[@GetMapping,@PostMapping]이 붙은 메소드 어노테이션 메타정보
+				- @RequestMapping[@GetMapping,@PostMapping]이 붙은 메소드 리턴 값 메타정보
  
 			디스패처 서블릿은 애플리케이션이 실행될 때 모든 컨트롤러 빈의 메소드를 살펴서 
 			매핑 후보가 되는 메소드들을 추출한 뒤, 이를 HandlerMethod 형태로 저장해둔다. 

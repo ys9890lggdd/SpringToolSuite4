@@ -1,7 +1,7 @@
 package com.itwill.user.config;
 
 import org.springframework.context.annotation.Configuration;
-
+import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -9,7 +9,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.itwill.user.controller.AuthLoginInterceptor;
 
 @Configuration
-
 public class WebConfig implements WebMvcConfigurer{
 	/********************WebMvcConfigurer재정의*********************/
 	@Override
@@ -38,7 +37,7 @@ public class WebConfig implements WebMvcConfigurer{
 		.excludePathPatterns("/user_login_action")
 		.excludePathPatterns("/user_write_form")
 		.excludePathPatterns("/user_write_action");
-	}	
+	}
 	/*************************************************************/
 	
 	
@@ -50,7 +49,7 @@ public class WebConfig implements WebMvcConfigurer{
 	public BeanNameViewResolver beanNameViewResolver() {
 		BeanNameViewResolver beanNameViewResolver=new BeanNameViewResolver();
 		beanNameViewResolver.setOrder(0);
-		return beanNameViewResolver;		
+		return beanNameViewResolver;
 	}
 	
 	@Bean
