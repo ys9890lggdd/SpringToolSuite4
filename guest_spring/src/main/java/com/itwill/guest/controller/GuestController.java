@@ -70,6 +70,15 @@ public class GuestController {
 		return "guest_modify_form";
 	}
 	
+	@PostMapping(value="/guest_modify_action")
+	public String guest_modify_form(@ModelAttribute Guest guest,RedirectAttributes redirectAttributes) throws Exception{
+		guestService.updateGuest(guest);
+		redirectAttributes.addAttribute("guest_no", guest.getGuest_no());
+		return "redirect:guest_view";
+	}
+	
+	
+	
 	@RequestMapping("/guest_write_form")
 	public String guest_write_form() {
 		return "guest_write_form";
@@ -103,3 +112,16 @@ public class GuestController {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

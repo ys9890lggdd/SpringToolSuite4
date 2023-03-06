@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
   
 <h1>
-	<a href="">방명록 [gust spring]</a>
+	<a href="">방명록 [gust spring jsp]</a>
 </h1>
