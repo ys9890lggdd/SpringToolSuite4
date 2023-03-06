@@ -1,5 +1,6 @@
 package com.itwill.user.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +18,15 @@ import com.itwill.user.exception.ExistedUserException;
 import com.itwill.user.exception.PasswordMismatchException;
 import com.itwill.user.exception.UserNotFoundException;
 /*
- * /user_main 
- * /user_write_form 
- * /user_write_action 
- * /user_login_form
- * /user_login_action 
- * /user_logout_action 
- * /user_view /user_modify_form
- * /user_modify_action 
- * /user_remove_action
+  /user_main 
+  /user_write_form 
+  /user_write_action 
+  /user_login_form
+  /user_login_action 
+  /user_logout_action 
+  /user_view /user_modify_form
+  /user_modify_action 
+  /user_remove_action
  */
 @Controller
 public class UserController {
@@ -79,48 +80,97 @@ public class UserController {
 	}
 	
 	@RequestMapping("/user_view")
-	public String user_view() throws Exception {
+	public String user_view(HttpServletRequest request) throws Exception {
+		String forwardPath = "";
 		/************** login check **************/
+		String sUserId=(String)request.getSession().getAttribute("sUserId");
+		if(sUserId==null) {
+			forwardPath="redirect:user_main";
+			return forwardPath;
+		}
+		/****************************************/
+		User loginUser=userService.findUser(sUserId);
+		request.setAttribute("loginUser", loginUser);
+		forwardPath="user_view";
 		
+		return forwardPath;
+	}
+
+	@PostMapping("user_modify_form")
+	public String user_modify_form(HttpServletRequest request) throws Exception {
+		String forwardPath = "";
+		/************** login check **************/
+		String sUserId=(String)request.getSession().getAttribute("sUserId");
+		if(sUserId==null) {
+			forwardPath="redirect:user_main";
+			return forwardPath;
+		}
+		/****************************************/
+		
+		User loginUser=userService.findUser(sUserId);
+		request.setAttribute("loginUser", loginUser);
+		forwardPath="user_modify_form";
+		
+		return forwardPath;
+	}
+
+	@PostMapping("user_modify_action")
+	public String user_modify_action(@ModelAttribute User user,HttpServletRequest request) throws Exception {
+		String forwardPath = "";
+		/************** login check **************/
+		String sUserId=(String)request.getSession().getAttribute("sUserId");
+		if(sUserId==null) {
+			forwardPath="redirect:user_main";
+			return forwardPath;
+		}
+		/****************************************/
+		userService.update(user);
+		forwardPath="redirect:user_view";
+		return forwardPath;
+	}
+
+	@PostMapping("user_remove_action")
+	public String user_remove_action(HttpServletRequest request) throws Exception {
+	
+		String forwardPath = "";
+		/************** login check **************/
+		String sUserId=(String)request.getSession().getAttribute("sUserId");
+		if(sUserId==null) {
+			forwardPath="redirect:user_main";
+			return forwardPath;
+		}
+		/****************************************/
+		userService.remove(sUserId);
+		request.getSession().invalidate();
+		//forwardPath="forward:user_logout_action";
+		forwardPath="redirect:user_main";
+		return forwardPath;
+	}
+	@RequestMapping("user_logout_action")
+	public String user_logout_action(HttpServletRequest request) {
 		
 		String forwardPath = "";
-		return forwardPath;
-	}
-
-
-	public String user_modify_form_post() throws Exception {
 		/************** login check **************/
-
-		String forwardPath = "";
-
+		String sUserId=(String)request.getSession().getAttribute("sUserId");
+		if(sUserId==null) {
+			forwardPath="redirect:user_main";
+			return forwardPath;
+		}
+		request.getSession(false).invalidate();
+		forwardPath="redirect:user_main";
+		/****************************************/
 		return forwardPath;
 	}
-
-	public String user_modify_action_post() throws Exception {
-		/************** login check **************/
-		String forwardPath = "";
-		return forwardPath;
-	}
-
-	public String user_remove_action_post() throws Exception {
-		/************** login check **************/
-		String forwardPath = "";
-		return forwardPath;
-	}
-
-	public String user_logout_action(HttpSession session) {
-		/************** login check **************/
-		String forwardPath = "";
-		return forwardPath;
-	}
-
 	/***********GET방식요청시 guest_main redirection*********/
 	@GetMapping({
 				"user_write_action",
 				"user_login_action",
+				"user_modify_form",
+				"user_modify_action",
+				"user_remove_action"
 				})
 	public String user_get() {
-		String forwardPath = "";
+		String forwardPath = "redirect:user_main";
 		return forwardPath;
 	}
 	/****************Local Exception Handler***********/

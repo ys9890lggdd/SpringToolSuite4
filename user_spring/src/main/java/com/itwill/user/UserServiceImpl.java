@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService{
 		//2.회원가입
 		return userDao.create(user);
 	}
-	/*********************************************/	
+	/*********************************************/
 	/*
 	 * 회원로그인
 	 * 
@@ -53,17 +53,17 @@ public class UserServiceImpl implements UserService{
 	 */
 	@Override
 	public int login(String userId,String password) throws Exception,UserNotFoundException,PasswordMismatchException {
-		int result=-1;
+		int result=1;
 		
 		User user = userDao.findUser(userId);
 		if(user==null) {
 			//아이디존재안함
 			throw new UserNotFoundException(userId+" 는 존재하지않는 아이디입니다.");
-		}		
+		}
 		if(!user.isMatchPassword(password)){
-		    //패쓰워드불일치
-		    throw new PasswordMismatchException("패쓰워드가 일치하지않습니다.");		
-		}		
+			//패쓰워드불일치
+			throw new PasswordMismatchException("패쓰워드가 일치하지않습니다.");
+		}
 		return result;
 	}
 	/*
@@ -114,3 +114,19 @@ public class UserServiceImpl implements UserService{
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
