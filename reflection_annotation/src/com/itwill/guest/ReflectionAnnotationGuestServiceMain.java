@@ -17,7 +17,7 @@ public class ReflectionAnnotationGuestServiceMain {
 		 */
 		System.out.println("############### Spring Container 초기화 start ############# ");
 		HashMap applicationContext = new HashMap();
-				
+		
 		Class guestPackageClass0 = DataSource.class;
 		Class guestPackageClass1 = GuestDaoImpl.class;
 		Class guestPackageClass2 = GuestServiceImpl.class;
@@ -26,7 +26,7 @@ public class ReflectionAnnotationGuestServiceMain {
 		guestPackageClasses[1] = guestPackageClass1;
 		guestPackageClasses[2] = guestPackageClass2;
 
-		System.out.println("--------@MyComponent 객체생성--------------");
+		System.out.println("--------@Component 객체생성--------------");
 		for (Class clazz : guestPackageClasses) {
 			Annotation[] annotations = clazz.getAnnotations();
 			for (Annotation annotation : annotations) {
@@ -39,10 +39,10 @@ public class ReflectionAnnotationGuestServiceMain {
 				}
 			}
 		}
-        System.out.println(applicationContext);
-        
-        
-		System.out.println("--------@MyAutoWire setter method호출--------------");
+		System.out.println(applicationContext);
+		
+		
+		System.out.println("--------@AutoWire setter method호출--------------");
 		Iterator<String> beanIdIterator= applicationContext.keySet().iterator();
 		while (beanIdIterator.hasNext()) {
 			String beanId=beanIdIterator.next();

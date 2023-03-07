@@ -34,4 +34,3 @@ bootRun {
     systemProperty "spring.profiles.active", activeProfile
 }
 */
-	

@@ -28,3 +28,15 @@ public class RequestMappingGETPOSTController {
 		return "forward:/WEB-INF/views/post_login_result.jsp";
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+

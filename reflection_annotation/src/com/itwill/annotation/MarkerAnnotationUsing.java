@@ -1,5 +1,5 @@
 package com.itwill.annotation;
-@MakerAnnotation
+@MarkerAnnotation
 public class MarkerAnnotationUsing {
 
 }

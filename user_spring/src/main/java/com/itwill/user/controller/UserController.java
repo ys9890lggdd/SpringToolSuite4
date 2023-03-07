@@ -85,14 +85,14 @@ public class UserController {
 		String forwardPath = "";
 		/************** login check **************/
 		/****************************************/
-		String sUserId = (String)request.getSession().getAttribute("sUserId");
+		String sUserId =(String)request.getSession().getAttribute("sUserId");
 		User loginUser=userService.findUser(sUserId);
 		request.setAttribute("loginUser", loginUser);
 		forwardPath="user_view";
 		
 		return forwardPath;
 	}
-    @LoginCheck
+	@LoginCheck
 	@PostMapping("user_modify_form")
 	public String user_modify_form(HttpServletRequest request) throws Exception {
 		String forwardPath = "";
@@ -105,19 +105,19 @@ public class UserController {
 		
 		return forwardPath;
 	}
-    @LoginCheck
+	@LoginCheck
 	@PostMapping("user_modify_action")
 	public String user_modify_action(@ModelAttribute User user,HttpServletRequest request) throws Exception {
 		String forwardPath = "";
-		/************** login check **************/		
+		/************** login check **************/
 		/****************************************/
 		userService.update(user);
 		forwardPath="redirect:user_view";
 		return forwardPath;
 	}
-    @LoginCheck
+	@LoginCheck
 	@PostMapping("user_remove_action")
-	public String user_remove_action(HttpServletRequest request) throws Exception {	
+	public String user_remove_action(HttpServletRequest request) throws Exception {
 		String forwardPath = "";
 		/************** login check **************/
 		/****************************************/
@@ -128,7 +128,7 @@ public class UserController {
 		forwardPath="redirect:user_main";
 		return forwardPath;
 	}
-    @LoginCheck
+	@LoginCheck
 	@RequestMapping("user_logout_action")
 	public String user_logout_action(HttpServletRequest request) {
 		
@@ -159,3 +159,18 @@ public class UserController {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

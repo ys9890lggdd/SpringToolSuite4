@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 @Controller
 public class HelloAnnotationController2 {
 	public HelloAnnotationController2() {
@@ -16,4 +15,5 @@ public class HelloAnnotationController2 {
 		request.setAttribute("msg", "HelloAnnotationController2 안녕");
 		return "forward:/WEB-INF/views/hello2.jsp";
 	}
+	
 }

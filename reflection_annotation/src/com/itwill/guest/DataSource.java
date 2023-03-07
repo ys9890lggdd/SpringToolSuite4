@@ -15,8 +15,8 @@ public class DataSource {
 		/*******************************************/
 		String driverClass = "oracle.jdbc.OracleDriver";
 		String url = "jdbc:oracle:thin:@182.237.126.19:1521:xe";
-		String user = "jdeveloper14";
-		String password = "jdeveloper14";
+		String user = "jdeveloper30";
+		String password = "jdeveloper30";
 		/*******************************************/
 		Class.forName(driverClass);
 		Connection con = DriverManager.getConnection(url, user, password);

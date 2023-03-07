@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="s"  uri="http://www.springframework.org/tags"%>
 <%--
 	request.setAttribute("price0", 345345435);
 	request.setAttribute("name0", "kim eun hi");
@@ -35,22 +35,22 @@
 	<li>문자열리터럴(EL):&dollar;{'KIM'.replace('K','N')}</li>
 	<li>문자열리터럴(SPEL):<s:eval expression="'KIM'.replace('K','N')"/> </li>
 	<li>숫자리터럴(EL):${12345+347834687}</li>
-	<li>숫자리터럴(SPEL):<s:eval expression="12345+347834687"/> </li> 
+	<li>숫자리터럴(SPEL):<s:eval expression="12345+347834687"/></li>
 	<li>논리리터럴(EL):${true}</li>
-	<li>논리리터럴(SPEL):<s:eval expression="true"/> </li>
-	<li>변수1(EL String Wrraper):${price0},${name0},${price1},${name1},${married1}</li>
+	<li>논리리터럴(SPEL):<s:eval expression="true"/></li>
+	<li>변수1(EL String Wrapper):${price0},${name0},${price1},${name1},${married1}</li>
 	<li>변수2(EL Bean):${guest.guest_name},${guest.guest_email}</li>
 	<li>
 		변수1(SPEL String Wrapper):
-		    <s:eval expression="price2"/>,
-		    <s:eval expression="name2"/>,
-		    <s:eval expression="married2"/>		    			    		
+			<s:eval expression="price2"/>,
+			<s:eval expression="name2"/>,
+			<s:eval expression="married2"/>
 	</li>
 	<li>
 		변수2(SPEL Bean):
-		    <s:eval expression="guest.guest_name"/>
-		    <s:eval expression="guest.getGuest_email()"/>
-		    <s:eval expression="guest.guest_email.toUpperCase()"/>
+			<s:eval expression="guest.guest_name"/>		
+			<s:eval expression="guest.getGuest_email()"/>		
+			<s:eval expression="guest.guest_email.toUpperCase()"/>		
 	</li>
 	<li>SPEL + EL(문자열리터럴):
 		<s:eval expression="name0.substring(1)"/> == <s:eval expression="'${name0}'.substring(1)"/>
@@ -59,7 +59,7 @@
 		<s:eval expression="${price0}+3455"/> == <s:eval expression="price0+3455"/>
 	</li>
 	<li>SPEL(SCOPE객체에 등록된 숫자변수(속성이름)):
-		<s:eval expression="price0 + price1/9.0 * 0.3254"/> == ${price0 + price1/9 * 0.3254}
+		<s:eval expression="price0 + price1/9.0 * 0.3254"/> == ${price0 + price1/9.0 * 0.3254}
 	</li>
 	<li>SPEL(SCOPE객체에 등록된 문자열변수(속성이름)):
 		<s:eval expression="name0.replace('kim','sim').substring(4)"/>

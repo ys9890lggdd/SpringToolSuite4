@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+	    
+		$('#id').keyup(function(e){
+		    var idStr=$('#id').val();
+		    if(idStr.trim()==''){
+				return;
+		    }
+		    /*
+		    jQuery ajax요청
+		    */
+		    
+		    
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>ajax요청</h1>
+	<hr />
+	<form name="f" id="f" action="">
+		아이디:<input type="text" name="id" id="id"> <span id="msg"></span>
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+

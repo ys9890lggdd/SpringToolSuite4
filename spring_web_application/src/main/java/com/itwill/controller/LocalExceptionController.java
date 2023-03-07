@@ -43,7 +43,7 @@ public class LocalExceptionController {
 		return "business_error_result";
 	}
 	@ExceptionHandler(BusinessException2.class)
-	public ModelAndView handle_business_exception2(BusinessException2 e,Model model) {
+	public ModelAndView handle_business_exception2(BusinessException2 e) {
 		ModelAndView modelAndView=new ModelAndView();
 		modelAndView.setViewName("business_error_result");
 		modelAndView.addObject("error_msg", e.getMessage());
@@ -57,3 +57,16 @@ public class LocalExceptionController {
 	}
 	*/
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,17 +17,21 @@ import com.itwill.controller.HelloController;
 @Configuration
 
 public class WebConfig implements WebMvcConfigurer{
-	
+	/********************WebMvcConfigurer재정의*********************/
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/").setViewName("forward:/index.jsp");
 	}
+	/*
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
-		 //registry.jsp("/WEB-INF/views",".jsp");
+		 registry.jsp("/WEB-INF/views/",".jsp");
 	}
-	/************************spring mvc객체등록*****************************/
-	//ViewResolver등록
+	*/
+	/*************************************************************/
+	
+	/*********************Spring MVC 빈객체등록*********************/
+	// 1.ViewResolver객체등록
 	@Bean
 	public BeanNameViewResolver beanNameViewResolver() {
 		BeanNameViewResolver beanNameViewResolver=new BeanNameViewResolver();
@@ -42,8 +46,6 @@ public class WebConfig implements WebMvcConfigurer{
 		internalResourceViewResolver.setOrder(1);
 		return internalResourceViewResolver;
 	}
-	
-	
 	
 	/*
 	@Bean

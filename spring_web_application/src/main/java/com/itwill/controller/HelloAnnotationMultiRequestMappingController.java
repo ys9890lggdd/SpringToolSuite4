@@ -39,8 +39,8 @@ public class HelloAnnotationMultiRequestMappingController {
 	
 	
 	@RequestMapping("/hello_redirect_jsp")
-	public String hello_redirect_jsp() {
-		return "redirect:hello_redirected_jsp";
+	public String hello_redierct_jsp() {
+		return "redirect:hello_redirected.jsp";
 	}
 	
 	

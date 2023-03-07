@@ -9,9 +9,9 @@ import java.lang.annotation.Target;
 @Retention(RUNTIME)
 @Target(TYPE)
 public @interface ComponentMultiValue {
-    String value() default "";
-    String[] names() default {};
-    int count();
-    boolean print() default false;
-    
+	String value() default "";
+	String[] names() default {};
+	int count();
+	boolean print() default false;
+	
 }

@@ -50,6 +50,7 @@ public class _02_ReflectionCreateInstanceMethodInvocationMain {
 		returnObject = method.invoke(newInstance, null);
 		String returnStringValue = (String)returnObject;
 		System.out.println(returnStringValue);
+		
 		System.out.println("############ 필드값 바꾸기 ###########");
 		Field field = clazz.getDeclaredField("guest_name");
 		field.setAccessible(true);

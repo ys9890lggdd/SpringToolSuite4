@@ -4,4 +4,4 @@ spring:
     suffix: .html
     mode: HTML
     cache: false
-    check-template-location: true
+    check-template-location: true 

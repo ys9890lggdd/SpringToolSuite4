@@ -41,7 +41,7 @@ public class WebConfig implements WebMvcConfigurer{
 		.excludePathPatterns("/user_write_action");
 		*/
 		AuthLoginAnnotationInterceptor authLoginAnnotationInterceptor=
-				new AuthLoginAnnotationInterceptor();		
+				new AuthLoginAnnotationInterceptor();
 		registry.addInterceptor(authLoginAnnotationInterceptor)
 		.addPathPatterns("/**")
 		.excludePathPatterns("/css/**")

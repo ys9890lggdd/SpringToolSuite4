@@ -12,17 +12,15 @@ public class OrderDaoImpl implements OrderDao {
 	
 	@Autowired
 	private DataSource dataSource;
-	
+
 	@Override
 	public List<Order> list() {
 		System.out.println("의존성객체 dataSource : "+dataSource);
 		
-		return Arrays.asList( new Order(1,"주문1",new Date()),
-				              new Order(2,"주문2",new Date()),
-				              new Order(3,"주문3",new Date())
-				              );
-		
-		
+		return Arrays.asList(	new Order(1,"주문1",new Date()),
+						new Order(2,"주문2",new Date()),
+						new Order(3,"주문3",new Date())
+						);
 	}
-
+	
 }

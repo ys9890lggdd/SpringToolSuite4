@@ -20,10 +20,10 @@ public class XMLView extends AbstractView {
 	protected void renderMergedOutputModel(Map<String, Object> model, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		/*********************forward****************************
-		RequestDispatcher rd =request.getRequestDispatcher("xxx.jsp"); rd.forward(request, response);
+		/*********************forward**************************
+		 * RequestDispatcher rd =request.getRequestDispatcher("xxx.jsp"); rd.forward(request, response);
 		 ********************************************************/
-		/*********************redirect***************************
+		/*********************redirect************************** 
 		 * response.sendRedirect("xxx");
 		 ********************************************************/
 		ArrayList<String> friendList=(ArrayList<String>)model.get("friendList");

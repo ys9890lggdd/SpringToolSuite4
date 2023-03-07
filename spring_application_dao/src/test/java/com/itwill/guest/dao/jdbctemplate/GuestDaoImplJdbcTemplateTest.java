@@ -29,8 +29,8 @@ class GuestDaoImplJdbcTemplateTest {
 	@Transactional
 	@Test
 	void testInsertGuest() throws Exception{
-		int rowCount =
-				           guestDao.insertGuest(new Guest(0, "name", "2022", "email@email.com", "homepage", "title", "content"));
+		int rowCount = 
+				guestDao.insertGuest(new Guest(0, "name", "2022", "email@email.com", "homepage", "title", "content"));
 		assertEquals(1, rowCount);
 		
 	}

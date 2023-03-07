@@ -1,12 +1,12 @@
 package com.itwill.annotation;
 
-@MakerAnnotation
+@MarkerAnnotation
 public class MarkerAnnotationPlacement {
-	@MakerAnnotation
+	@MarkerAnnotation
 	String field;
-	@MakerAnnotation
-	public void method1(@MakerAnnotation String str) {
-		@MakerAnnotation
+	@MarkerAnnotation
+	public void method1(@MarkerAnnotation String str) {
+		@MarkerAnnotation
 		String test;
 	}
 }

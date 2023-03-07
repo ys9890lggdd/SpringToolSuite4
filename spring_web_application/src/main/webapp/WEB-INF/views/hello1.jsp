@@ -12,7 +12,7 @@
 <ol>
 	<li>/hello1요청</li>
 	<li>
-		DispatcherServlet이 HandlerMapping객체로부터 요청url[/hello1.do]에 해당하는 
+		DispatcherServlet이 HandlerMapping객체로부터 요청url[/hello1]에 해당하는 
 	    HelloAnnotationController1 객체얻기
 	 </li>
 	 <li>

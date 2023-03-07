@@ -16,13 +16,13 @@ public class RequestParamModelAttributeController {
 	}
 	
 	@PostMapping("/parameter_guest_write_action")
-	public String parameter_guest_write_action(@RequestParam String guest_name,
-	                                           @RequestParam String guest_email,
-			                                   @RequestParam String guest_homepage,
-			                                   @RequestParam String guest_title,
-			                                   @RequestParam String guest_content
-			                                   ) {
-				
+	public String parameter_guest_write_action( @RequestParam String guest_name,
+												@RequestParam String guest_email,
+												@RequestParam String guest_homepage,
+												@RequestParam String guest_title,
+												@RequestParam String guest_content
+												) {
+		
 		/*
 		<< 방명록쓰기 >>
 		  << @RequestParam("guest_name") String name >>
@@ -33,9 +33,9 @@ public class RequestParamModelAttributeController {
 			  String guest_title = request.getParameter("guest_title");
 			  String guest_content = request.getParameter("guest_content");
 		 */
-		Guest guest=new Guest(0, guest_name, null, guest_email, guest_homepage, guest_title, guest_content);
+		Guest insertGuest=new Guest(0, guest_name, null, guest_email, guest_homepage, guest_title, guest_content);
 		System.out.println("### @RequestParam ####");
-		System.out.println("### insertGuest:"+guest);	
+		System.out.println("### insertGuest:"+insertGuest);
 		/*
 		 * GuestService 메쏘드호출
 		 */

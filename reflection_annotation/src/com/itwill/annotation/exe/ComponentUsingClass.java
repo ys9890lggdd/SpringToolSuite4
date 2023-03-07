@@ -8,7 +8,7 @@ public class ComponentUsingClass {
 	private Object member;
 	
 	@AutoWired
-	public ComponentUsingClass(Object member) {		
+	public ComponentUsingClass(Object member) {
 	}
 	
 	@AutoWired

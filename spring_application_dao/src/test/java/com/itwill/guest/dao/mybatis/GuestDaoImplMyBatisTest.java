@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 class GuestDaoImplMyBatisTest {
 	@Autowired
-    private GuestDao guestDao;
+	private GuestDao guestDao;
 	
 	//@Test
 	void init() {
@@ -25,14 +25,14 @@ class GuestDaoImplMyBatisTest {
 
 	
 	void testSelectByNo() {
-		fail("Not yet implemented");		
+		fail("Not yet implemented");
 	}
 	
-    @Transactional
+	@Transactional
 	@Test
 	void testInsertGuest() {
 		
-	}    
+	}
 
 	
 	void testUpdateGuest() {

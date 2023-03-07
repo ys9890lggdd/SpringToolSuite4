@@ -9,10 +9,9 @@ import org.springframework.stereotype.Service;
 public class OrderServiceImpl implements OrderService {
 	@Autowired
 	private OrderDao orderDao;
-	
 	@Override
 	public List<Order> list() {
 		return orderDao.list();
 	}
-
+	
 }

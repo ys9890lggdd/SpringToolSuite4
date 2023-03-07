@@ -14,5 +14,5 @@ public class RequestMappingUserController {
 	public String user_view() {
 		return "forward:/WEB-INF/views/user/view.jsp";
 	}
-
+	
 }

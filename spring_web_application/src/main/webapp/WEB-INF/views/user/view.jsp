@@ -9,7 +9,7 @@
 <body>
 <h1>user/view.jsp</h1><hr>
 <ol>
-    <li>KIM</li>
+	<li>KIM</li>
 </ol>
 </body>
 </html>
