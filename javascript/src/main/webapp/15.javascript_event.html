@@ -62,11 +62,18 @@
 		
 		for(let i=0;i<movie_rankListElementArray.length;i++){
 			movie_rankListElementArray[i].addEventListener('click',function(e){
-				console.log("e.target:"+e.target);
+				let clickElement=e.target;
+				displayMessage('click한영화:'+clickElement.innerHTML);
+				
+				if(clickElement.style.background=='gray'){
+					clickElement.style.background='white';
+					clickElement.style.color='gray';
+				}else{				
+				    clickElement.style.background='gray';
+				    clickElement.style.color='white';
+				}
 			});
-		}
-		
-		
+		}				
 		/*
 			<< element1의 하위노드만검색 >>
 			element1.getElementById();
