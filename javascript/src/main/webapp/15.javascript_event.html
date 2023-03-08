@@ -8,19 +8,21 @@
 	    var resultDivE=document.getElementById('result');
 		resultDivE.innerHTML += msg+"<br>";
 	}
-	function inlineEventHandler(e){	
-		let msg = "inlineEventHandler-->이벤트타겟"+e.target+",이벤트타입:"+e.type;
+	function inlineEventHandler(e){
+		let msg = "inlineEventHandler-->이벤트타겟:"+e.target+",이벤트타입:"+e.type;
 		displayMessage(msg);
 	}
 	function button2EventHandler(e){
-		let msg = "inlineEventHandler-->이벤트타겟"+e.target+",이벤트타입:"+e.type;
+		let msg = "button2EventHandler-->이벤트타겟:"+e.target+",이벤트타입:"+e.type;
 		displayMessage(msg);
 	}
 	function button3EventHandler1(e){
-	   
+		let msg = "button3EventHandler1[click]-->이벤트타겟:"+e.target+",이벤트타입:"+e.type;
+		displayMessage(msg);
 	}
 	function button3EventHandler2(e){
-	    
+		let msg = "button3EventHandler2[click]-->이벤트타겟:"+e.target+",이벤트타입:"+e.type;
+		displayMessage(msg);
 	}
 	
 	/*
@@ -32,17 +34,37 @@
 		alert(' >>>> 실행시점 DOMTree로딩완료후 랜더링전시점에실행');
 		/*** DOM LEVEL - 0 ***/
 		let button2E = document.getElementById("button2");
-		button2E.onclick=button2EventHandler;
-		
 		/*********CASE1*******/
-		
+		button2E.onclick=button2EventHandler;
 		/*********CASE2******/
-		
+		button2E.onclick = function(e){
+			let msg = "button2EventHandler익명함수-->이벤트타겟:"+e.target+",이벤트타입:"+e.type;
+			displayMessage(msg);
+		}
 		/*
 		https://www.w3schools.com/
 		*/
 		/*** DOM LEVEL - 2 ***/
+		let button3E = document.getElementById("button3");
+		button3E.addEventListener('click',button3EventHandler1);
+		button3E.addEventListener('click',button3EventHandler2);
+		button3E.addEventListener('click',function(e){
+			let msg = "button3익명EventHandler1[click]-->이벤트타겟:"+e.target+",이벤트타입:"+e.type;
+			displayMessage(msg);
+		});
+		button3E.addEventListener('mouseover',function(e){
+			let msg = "button3익명EventHandler2[click]-->이벤트타겟:"+e.target+",이벤트타입:"+e.type;
+			displayMessage(msg);
+		});
 		
+		let movie_rankOrderedListElement = document.getElementById('movie_rank');
+		let movie_rankListElementArray = movie_rankOrderedListElement.getElementsByTagName("li");
+		
+		for(let i=0;i<movie_rankListElementArray.length;i++){
+			movie_rankListElementArray[i].addEventListener('click',function(e){
+				console.log("e.target:"+e.target);
+			});
+		}
 		
 		
 		/*
@@ -54,16 +76,18 @@
 			document.getElementById();
 			document.getElementsByTagName();
 		*/
-		
-		
-		
 	};
 	/*
 	window.onload 이벤트발생시점
 	   - DOM Tree 생성직후 렌더링전에호출  이벤트등록
 	
 	*/
-	window.onload=event_regist();
+	window.onload=event_regist;
+	/* 
+	window.onload=function(){
+		event_regist();
+	}; 
+	*/
 	
 </script>
 </head>
@@ -83,7 +107,7 @@
 	<li>아바타</li>
 	<li>영웅</li>
 	<li>교섭</li>
-	<li>엔트맨과 와스프</li>
+	<li>앤트맨과 와스프</li>
 	<li>장화신은 고양이</li>
 </ol>
 <ol id='drama_rank'>
@@ -95,8 +119,6 @@
 </ol>
 <div id="result">
 </div>
-<script type="text/javascript">
-console.log(button2E);
-</script>
+
 </body>
 </html>
