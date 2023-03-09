@@ -41,16 +41,16 @@
 	}
 	
 </style>
-
+<script type="text/javascript" src="ajaxRequest.js"></script>
 <script type="text/javascript">
 	
 	function requestNews() {
-	   
+	   ajaxRequest('GET','08.newsTitlesJSON.jsp',null,responseNews);
 	}
 	
-	function responseNews() {
+	function responseNews(xhr) {
 	    
-	   
+	   console.log(xhr.responseTest);
 		/*
 		<< 서버로부터받은데이타[JSON] >>
 		{
@@ -70,7 +70,24 @@
 					]
 		}
 		*/
+		let responseJsonStr = xhr.responseText;
+		let responseJsonObject=JSON.parse(responseJsonStr);		
+		let newsJsonArray = responseJsonObject.data;
+		console.log(newsJsonArray);
 		
+		let htmlTemplate=`</ul>`;
+		for(let i=0;i<newsJsonArray.length;i++){
+			let title = newsJsonArray[i].newsTitle;
+			let company = newsJsonArray[i].company;
+			let date = newsJsonArray[i].date;
+			htmlTemplate+=`<li>${title}[${company}-${date}][JSON]</li>`;
+		}						
+		htmlTemplate+=`</ul>`;
+        
+         
+         
+        document.getElementById("newsDiv").innerHTML=htmlTemplate;
+         
 		/*	
 		<< 보여줘야할데이타[HTML] >>
 		<ul>
@@ -89,7 +106,7 @@
 		
 	}
 	window.onload=function(){
-		
+		setInterval(requestNews,3000);
 	};
 </script>
 </head>
@@ -103,6 +120,7 @@
 			<li>뉴스3[중상일보]2019-10-07</li>		
 		</ul>
 	</div>
+	
 </div>
 </body>
 </html>

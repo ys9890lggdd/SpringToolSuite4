@@ -23,6 +23,7 @@
 
 <%
 	List<News> newsList=this.getNewsList();
+    int count = (int)(Math.random()*newsList.size())+1;
 	StringBuffer sb=new StringBuffer();
 	sb.append("{");
 	sb.append("\"code\":"+1+",");
@@ -48,7 +49,6 @@
 		]
 }
 --%>
-
 
 
 
