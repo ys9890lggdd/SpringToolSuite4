@@ -52,12 +52,16 @@ document.addEventListener('click',function(e){
 	console.log("Event Target객체 classList.contains('guest_item_a')"+e.target.classList.contains('guest_item_a'));
 	/****************guest_detail*************/
 	if(e.target.classList.contains('guest_item_a')){
-		let params='';
-			
-		let jsonResult = Service.guestService('GET',URL.GUEST_DETAIL_URL,);
-		
-		//View.render();		
+		/*
+		<< e.target >>
+		<a href="#" class="user guest_item_a" guest_no="585"> 3시40분 시작</a>
+		*/		
+		let params='guest_no='+e.target.getAttribute("guest_no");			
+		let jsonResult = Service.guestService('GET',URL.GUEST_DETAIL_URL,params);		
+		View.render("#guest-detail-template",jsonResult,"#content");		
 	}
+	
+	e.preventDefault();
 		
 		
 });	
