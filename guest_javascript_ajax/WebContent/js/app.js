@@ -39,5 +39,14 @@ menuGuestHome.addEventListener('click',function(e){
 */
 //menuGuestHome.click();
 document.addEventListener('click',function(e){
-	console.log(e.target);
-});
+	
+	console.log("Event객체:"+e);
+	console.log("Event Target객체:"+e.target);
+	console.log("Event Target객체 id:"+e.target.id);
+	console.log("Event Target객체 id:"+e.target.getAttribute("id"));
+	console.log("Event Target객체 className:"+e.target.className);
+	console.log("Event Target객체 classList:"+e.target.classList);
+	console.log("Event Target객체 classList.contains('guest_item_a')"+e.target.classList.contains('guest_item_a'));
+	
+		
+});	
