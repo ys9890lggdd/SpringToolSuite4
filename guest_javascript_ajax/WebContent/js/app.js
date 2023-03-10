@@ -21,7 +21,8 @@ menuGuestHome.addEventListener('click',function(e){
 	
 });
 menuGuestList.addEventListener('click', function(e){
-	let jsonResult=Service.guestService();
+	let jsonResult=
+	    Service.guestService('GET','guest/guest_list_json.jsp','');
 	View.render("#guest-list-template",{},"#content");
 	e.preventDefault();
 });

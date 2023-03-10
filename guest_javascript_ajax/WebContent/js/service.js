@@ -14,13 +14,14 @@ function guestService(method,url,params){
                 true);
                 
 	
-	returnJsonResult;
+	returnHJsonResult;
 }
 function ajaxRequest(method,url,callbackFunction,params,async){
     let xhr=new XMLHttpRequest();   
     url=(method=='GET'&& params!=null)?url+'?'+params:url;
     async= async ?async:false;     
     xhr.onload=function(){
+	    console.log(xhr.responseText);
 	    callbackFunction(JSON.parse(xhr.responseText));
     }  
 	xhr.open(method,url,async);
