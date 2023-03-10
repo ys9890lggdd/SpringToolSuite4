@@ -16,7 +16,6 @@ System.out.println("0.jQuery Ajax요청URL    :" + request.getRequestURI());
 System.out.println("1.jQuery Ajax요청방식    :" + method);
 System.out.println("2.jQuery Ajax요청파라메타:");
 System.out.println("*************************************");
-
 GuestService guestService=new GuestService();
 List<Guest> guestList =guestService.selectAll();
 for(int i=0;i<guestList.size();i++){
@@ -33,7 +32,6 @@ for(int i=0;i<guestList.size();i++){
 	if((i+1)!=guestList.size())
 		jsonData.append(",");
 }
-
 %>
  {
 	"code":<%=code%>,
