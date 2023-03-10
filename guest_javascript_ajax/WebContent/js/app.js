@@ -23,6 +23,7 @@ menuGuestHome.addEventListener('click',function(e){
 	
 });
  menuGuestList.addEventListener('click',function(e){
+	let params='';
 	let jsonResult=
 		Service.guestService('GET',
 							URL.GUEST_LIST_URL,
@@ -39,7 +40,9 @@ menuGuestHome.addEventListener('click',function(e){
 */
 //menuGuestHome.click();
 document.addEventListener('click',function(e){
-	
+	/*
+	Element속성
+	*/
 	console.log("Event객체:"+e);
 	console.log("Event Target객체:"+e.target);
 	console.log("Event Target객체 id:"+e.target.id);
@@ -47,6 +50,14 @@ document.addEventListener('click',function(e){
 	console.log("Event Target객체 className:"+e.target.className);
 	console.log("Event Target객체 classList:"+e.target.classList);
 	console.log("Event Target객체 classList.contains('guest_item_a')"+e.target.classList.contains('guest_item_a'));
-	
+	/****************guest_detail*************/
+	if(e.target.classList.contains('guest_item_a')){
+		let params='';
+			
+		let jsonResult = Service.guestService('GET',URL.GUEST_DETAIL_URL,);
+		
+		//View.render();		
+	}
+		
 		
 });	
