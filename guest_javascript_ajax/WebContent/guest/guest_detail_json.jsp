@@ -5,7 +5,7 @@
 <%@ page language="java" contentType="application/json; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	int code = 1;
+	int code = 0;
 	String url = "";
 	String msg = "";
 	StringBuffer jsonData = new StringBuffer();
