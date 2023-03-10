@@ -11,9 +11,7 @@ function guestService(method,url,params){
 	                returnJsonResult=jsonResult;
                 },
                 params,
-                true);
-                
-	
+                true);               	
 	returnHJsonResult;
 }
 function ajaxRequest(method,url,callbackFunction,params,async){
