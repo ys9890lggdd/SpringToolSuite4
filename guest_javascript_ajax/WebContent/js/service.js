@@ -4,11 +4,11 @@
 //import {ajaxRequest} from './request.js';
 function guestService(method,url,params){
 	//ajax요청
-	let returnHJsonResult={};
+	let returnJsonResult={};
     ajaxRequest(method,
                 url,
                 function(jsonResult){
-	                console.log(jsonResult);
+	                returnJsonResult=jsonResult;
                 },
                 params,
                 true);
