@@ -15,12 +15,30 @@
 		    div element jQuery wrapper객체생성
 	*/
 	
-	$(function(){
-	    console.log('------DOM tree로딩직후 호출되는코드------');	
-	});
+	console.log("1."+window.jQuery);
+	console.log("2."+window.$);
 	
 	window.onload=function(){
-		console.log('------DOM tree로딩직후 호출되는코드------');	
+		console.log('------DOM tree로딩직후 호출되는코드------');
+		let jQueryWrapperObject1 = jQuery('h1');
+		let jQueryWrapperObject2 = $('h2');
+		console.log("3. factory function return:"+jQueryWrapperObject1);
+		console.log("4. factory function return:"+jQueryWrapperObject2);
+		
+		jQueryWrapperObject1.css('color','blue');
+		jQueryWrapperObject2.css('background','gold');
+		jQueryWrapperObject1.text('오늘은 jQuery를 공부합니다');
+		jQueryWrapperObject2.text('factory function은 중요한내용입니다.');
+		
+		$('h3').css('background','pink')
+			.text('jquery chaining coding!!!');
+		$('h4').text('힘내세요~~~').css('border','5px dotted blue');
+		$('h5').css('color','green').text('오늘은 월요일 입니다!!!');;
+		$('h6').css('color','red').css('background','yellow');
+		
+		$
+		
+		
 	};
 	
 </script>
@@ -30,6 +48,7 @@
 <h1>jQuery,$[factory function]</h1>
 <h1>jQuery,$[factory function]</h1>
 <hr/>
+<h2>jQuery,$[factory function]</h2>
 <h2>jQuery,$[factory function]</h2>
 <h3>jQuery,$[factory function]</h3>
 <h3>jQuery,$[factory function]</h3>
