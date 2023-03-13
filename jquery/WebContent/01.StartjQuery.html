@@ -34,20 +34,36 @@
 	 이것을 다양한방식으로다룰수 있게해준다.
 	 */
 	
+	 console.log("1."+window.$);
+	 console.log("2."+window.jQuery);
+	 		
 	 $(function(){
-		   /*
-			DOM tree loading후 렌더링전에 호출
-			*/
+	   /*
+	    DOM tree loading후 렌더링전에 호출
+		*/
+		let jQueryWrapper1=$('h1');
+		let jQueryWrapper2=$('h2');
+        console.log('3.jQueryWrapperObject1:'+jQueryWrapper1);		
+        console.log('4.jQueryWrapperObject2:'+jQueryWrapper2);		
+	    jQueryWrapper1.css('color','blue');
+	    jQueryWrapper2.css('color','skyblue');
+	    
+	    $('h3').text('오늘은 jQuery를 진짜로 사용합니다.');
+		$('h4').text('factory function 은 jQueryObject를반환합니다.');
+		$('h5').text('월요일 이네요!!!');
+		$('h6').text('마지막까지 꺽이지않는 마음~~~');
 		
-		
+		$('h3').css('color','blue').css('background','skyblue');
+		$('h4').css('color','purple').css('background','lavender');
+		$('h5').css('color','black').css('background','gray');
+	    
+		$('h6').text('이제시작해봅시다').css('color','green');
+		console.log($('h1').text());
+		console.log($('h2').text());
+		console.log($('h3').text());		
 	 });
 	 
-	 window.onload=function(){
-		/*
-		DOM tree loading후 렌더링전에 호출
-		*/
-		
-	 }
+	 
 </script>
 </head>
 <body>
