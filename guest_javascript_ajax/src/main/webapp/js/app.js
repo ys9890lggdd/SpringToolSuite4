@@ -110,6 +110,11 @@ document.addEventListener('click',function(e){
 		}			
 	}
 	/****************guest_modify_form_action****/
+	if(e.target.id=='btn_guest_modify_form'){
+		const params = 'guest_no='+e.target.getAttribute('guest_no');
+		const jsonResult = Service.guestService('POST',URL.GUEST_DETAIL_URL,params);
+		View.render('#guest-modify-form-template',jsonResult,'#content');
+	}
 	/****************guest_modify_action*********/
 	
 	
