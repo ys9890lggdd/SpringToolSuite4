@@ -15,6 +15,7 @@ function guestService(method,url,params){
 				
 	return returnJsonResult;
 }
+
 function ajaxRequest(method,url,callbackFunction,params,async){
 	let xhr=new XMLHttpRequest();
 	url=(method=='GET'&& params!=null)?url+'?'+params:url;
