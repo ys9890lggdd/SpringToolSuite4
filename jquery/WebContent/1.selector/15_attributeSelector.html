@@ -11,7 +11,7 @@ div {
 }
 /*
 [type='text']{
-    color:blue;
+	color:red;
 }
 */
 </style>
@@ -25,7 +25,7 @@ div {
 		/*
 		id속성이 1 로 끝나는( $= )
 		*/
-		$("div[id $='1']").css('background','skyblue');
+		$("div[id $='1']").css('background','orange');
 		/*
 		name 속성이 man과 일치하는( = )
 		*/
@@ -33,11 +33,11 @@ div {
 		/*
 		name 속성이 man글자을 포함하는( *= )
 		*/
-		$("input[name *='man']").css('background','pink');
+		$("input[name *= 'man']").css('background','pink');
 		/*
 		name 속성이 man단어를  포함하는( ~= )
 		*/
-		$("input[name ~='man']").css('color','red');
+		$("input[name ~= 'man']").css('color','red');
 	});
 </script>
 </head>

@@ -89,3 +89,11 @@ window.jQuery.each=function(array,funcArg){
 
 
 window.$=window.jQuery;
+
+
+
+
+
+
+
+

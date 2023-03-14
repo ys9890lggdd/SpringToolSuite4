@@ -19,10 +19,10 @@
 		*/
 		
 		let filterNameArray=$.grep(memberNameArray,function(name,index){
-			                                             return name.startsWith('k')
-			                                      });	
+														return name.startsWith('k');
+												  });
 		
-		//let filterNameArray=$.grep(memberNameArray,(member,index)=>name.startsWith('k'));					
+		//let filterNameArray=$.grep(memberNameArray,(name,index)=>name.startsWith('k'));
 		
 		$.each(filterNameArray,function(i,name){
 			$('.selected1').append(name+" ");
@@ -31,13 +31,13 @@
 		let filterMemberArray = $.grep(memberArray,(member,index)=>member.address=='경기미');
 		/*
 		let filterMemberArray = $.grep(memberArray,function(member,index){
-			                                        return member.address=='경기미';
-		                                           });
+													return member.address=='경기미';
+												   });
 		*/
 		
 		$.each(filterMemberArray,(index,member)=>{
-			                        $('.selected2').append(`[${member.id}]${member.name},${member.address}`);
-		                          }	
+									$('.selected2').append(`[${member.id}]${member.name},${member.address}`);
+								 }
 		)
 		/*
 		$.each(filterMemberArray,function(index,member){
