@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 맵핑될 DAO 인터페이스의 Full name 을 줍니다. -->
+<mapper namespace="com.tistory.offbyone.service.SawonDAO">
+
+	<!-- id 속성은 DAO 의 메소드와 같아야 한다. 여기의 sawonVO 는 mybatis-confg.xml 에 Alias 되어 있습니다. -->
+	<select id="selectSawonList" resultType="sawonVO"> 
+	SELECT sabun
+	     , name
+	     , phone
+	     , email
+	  FROM tb_insa_sawon 
+	 ORDER BY sabun ASC
+	</select>
+	
+	<!-- 사원을 조회한다. -->
+	<select id="selectSawon" resultType="sawonVO">
+	SELECT sabun
+	     , name
+	     , phone
+	     , email
+	 FROM tb_insa_sawon
+	WHERE sabun = #{sabun}
+	</select>
+	
+	<!-- 포상 내역을 조회한다. -->
+	<select id="selectPrizeList" resultType="prizeVO">
+	SELECT sabun
+	     , seq
+	     , prize_name
+	     , prize_org
+	  FROM tb_insa_prize
+	 WHERE sabun = #{sabun}
+	ORDER BY seq ASC
+	</select>
+	
+	<!-- 사원을 입력한다. -->
+	<insert id="insertSawon">
+	INSERT INTO tb_insa_sawon (
+	      sabun
+	    , name
+	    , phone
+	    , email
+	) VALUES (
+	      #{sabun}
+	    , #{name}
+	    , #{phone}
+	    , #{email}
+	)
+	</insert>
+	
+	<!-- 상을 입력한다. -->
+	<insert id="insertPrize">
+	INSERT INTO tb_insa_prize (
+	      sabun
+	    , seq
+	    , prize_name
+	    , prize_org
+	) VALUES (
+	      #{sabun}
+	    , #{seq}
+	    , #{prizeName}
+	    , #{prizeOrg}
+	)
+	</insert>
+	
+	<!-- 사원을 업데이트한다. -->
+	<update id="updateSawon">
+	UPDATE tb_insa_sawon SET
+	      name = #{name}
+	    , phone = #{phone}
+	    , email = #{email}
+	WHERE sabun = #{sabun}
+	</update>
+	
+	<!-- 상을 삭제한다. -->
+	<delete id="deletePrize">
+	DELETE FROM tb_insa_prize WHERE sabun = #{sabun}
+	</delete>
+	
+	<!-- 사원을 삭제한다. -->
+	<delete id="deleteSawon">
+	DELETE FROM tb_insa_sawon WHERE sabun = #{sabun}
+	</delete>
+	
+</mapper>
