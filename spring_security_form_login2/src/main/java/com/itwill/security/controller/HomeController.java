@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class HomeController2 {
+public class HomeController {
 	@GetMapping("/")
 	public String main( Authentication authentication,Principal principal) {
 		System.out.println(authentication);
