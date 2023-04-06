@@ -16,9 +16,16 @@ public class DbInit implements InitializingBean {
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		if (!userService.findUser("user@test.com").isPresent()) {
-			Users user = userService
-					.save(Users.builder().email("user@test.com").password("1111").enabled(true).build());
-			userService.addAuthority(user.getUserId(), "ROLE_USER");
+			Users users1 = userService
+					.save(Users.builder().email("user1@test.com").password("1111").enabled(true).build());			
+			userService.addAuthority(users1.getUserId(), "ROLE_USER");
+			
+			
+			Users users2 = userService
+					.save(Users.builder().email("user2@test.com").password("2222").enabled(true).build());			
+			//userService.addAuthority(users2.getUserId(), "ROLE_USER");
+			userService.addAuthority(users2.getUserId(), "ROLE_ADMIN");
+		
 		}
 
 	}
