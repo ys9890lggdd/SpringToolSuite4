@@ -1,5 +1,6 @@
 package com.itwill.security.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
@@ -18,16 +19,17 @@ import com.itwill.security.user.service.UsersService;
 @EnableWebSecurity(debug = true)
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-    private final UsersService spUserService;
-
-    public SecurityConfig(UsersService spUserService) {
-        this.spUserService = spUserService;
+	
+    private UsersService userService;
+    
+    @Autowired
+    public SecurityConfig(UsersService userService) {
+        this.userService = userService;
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(spUserService);
+        auth.userDetailsService(userService);
     }
 
     @Bean
@@ -50,10 +52,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                             .anyRequest().authenticated()
                 )
                 .formLogin(login->
-                        login.loginPage("/login")
+                         login.loginPage("/login")
                         .loginProcessingUrl("/loginprocess")
                         .permitAll()
-                        .defaultSuccessUrl("/", false)
+                        .defaultSuccessUrl("/", true)
                         .failureUrl("/login-error")
                 )
                 .logout(logout->
