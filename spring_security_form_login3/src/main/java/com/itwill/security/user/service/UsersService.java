@@ -37,6 +37,7 @@ public class UsersService implements UserDetailsService {
 
 	public void addAuthority(Long userId, String authority) {
 		Optional<Users> optionalUsers = userRepository.findById(userId);
+		
 		if (optionalUsers.isPresent()) {
 			Users users = optionalUsers.get();
 			UsersAuthority newRole = new UsersAuthority(users.getUserId(), authority);
@@ -46,13 +47,15 @@ public class UsersService implements UserDetailsService {
 				users.setAuthorities(authorities);
 				save(users);
 			} else if (!users.getAuthorities().contains(newRole)) {
-				HashSet<UsersAuthority> authorities = new HashSet<>();
-				authorities.addAll(users.getAuthorities());
-				authorities.add(newRole);
-				users.setAuthorities(authorities);
+				//HashSet<UsersAuthority> authorities = new HashSet<>();
+				//authorities.addAll(users.getAuthorities());
+				//authorities.add(newRole);
+				//users.setAuthorities(authorities);
+				users.getAuthorities().add(newRole);
 				save(users);
 			}
 		}
+		
 		/*
 		userRepository.findById(userId).ifPresent(user -> {
 			UsersAuthority newRole = new UsersAuthority(user.getUserId(), authority);

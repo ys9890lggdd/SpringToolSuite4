@@ -1,6 +1,7 @@
 package com.itwill.security.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -9,11 +10,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.itwill.security.user.service.UsersService;
+
 @Controller
 public class HomeController {
-
+	@Autowired
+	UsersService usersService;
+	
     @GetMapping("/")
     public String main(){
+    		
         return "index";
     }
 

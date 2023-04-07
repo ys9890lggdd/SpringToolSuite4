@@ -6,6 +6,8 @@ import javax.persistence.*;
 
 import org.springframework.security.core.userdetails.UserDetails;
 
+import groovy.transform.ToString;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +19,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name="users")
+@ToString
+
 public class Users implements UserDetails {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long userId;

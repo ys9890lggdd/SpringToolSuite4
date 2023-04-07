@@ -36,6 +36,11 @@ logging:
         beans: debug
         context: debug 
         web: debug
+    com: 
+      itwill: 
+        user: trace        
+
+
         
 
 
