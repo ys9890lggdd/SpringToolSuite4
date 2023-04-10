@@ -9,7 +9,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import com.itwill.dto.Order;
 @SessionAttributes("order")
-@Controller
+//@Controller
 public class SessionOrderAnnotationController {
 	public SessionOrderAnnotationController() {
 		System.out.println("###SessionOrderAnnotationController()생성");
