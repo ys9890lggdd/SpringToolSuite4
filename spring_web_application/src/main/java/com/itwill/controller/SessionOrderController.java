@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwill.dto.Order;
 
-@Controller
+//@Controller
 public class SessionOrderController {
 	
 	@RequestMapping(value = "session_order_process1")

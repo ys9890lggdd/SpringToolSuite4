@@ -9,14 +9,14 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import com.itwill.dto.Order;
 @SessionAttributes("order")
-//@Controller
+@Controller
 public class SessionOrderAnnotationController {
 	public SessionOrderAnnotationController() {
 		System.out.println("###SessionOrderAnnotationController()생성");
 	}
 	
 	/*
-	- @SessionAttributes 파라미터로 지정된 이름과 같은 이름이 
+	- @SessionAttributes attribute로 지정된 이름과 같은 이름이 
 		@ModelAttribute에 지정되어 있을 경우 메소드가 반환되는 값은 세션에 저장된다
 	- 아래의 setUpOrder메쏘드 세션에 값을 초기화하는 목적으로 사용되었다
 	 */
@@ -32,7 +32,7 @@ public class SessionOrderAnnotationController {
 		return "session_order_process1";
 	}
 	/*
-	 @SessionAttributes의 파라미터와 같은 이름이 메서드의 인자로  @ModelAttribute에 있을 경우 
+	 @SessionAttributes의 attribute로 지정된 이름 같은 이름이 메서드의 인자로  @ModelAttribute에 있을 경우 
 	 세션에 있는 객체를 가져온 후, 클라이언트로 전송받은 파라메타값을 설정한다.
 	 */
 	@RequestMapping(value = "/session_order_process2")
