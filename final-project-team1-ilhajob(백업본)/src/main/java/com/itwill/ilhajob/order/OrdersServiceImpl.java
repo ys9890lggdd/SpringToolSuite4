@@ -27,10 +27,10 @@ public class OrdersServiceImpl implements OrdersService{
 	}
 	
 	//OrderNo로 주문내역 1개의 리스트 불러오기
-		@Override
-		public Orders selectByNo(int orderNo) throws Exception {
-			return ordersDao.findByNo(orderNo);
-	}
+			@Override
+			public Orders selectByNo(int orderNo) throws Exception {
+				return ordersDao.findByNo(orderNo);
+    }
 		
 	//ProductNo로 주문내역 1개의 리스트 불러오기
 	@Override
