@@ -14,7 +14,7 @@ public interface OrdersService {
     List<Orders> selectAllBySeq(int userSeq) throws Exception;
       
     //insert orders
-    int insertOrders(Orders orders) throws Exception;
+    int updateOrders(Orders orders) throws Exception;
     
     //delete orders
     int deleteOrders(int orderNo) throws Exception;

@@ -22,17 +22,17 @@ public class SpringBootOrdersDaoMain {
 		//System.out.println("--selectAllBySeq--");
 		//System.out.println(ordersDao.findAllBySeq(1));
 				
-		//System.out.println("--insert--");
-		//System.out.println(ordersDao.insert(Orders.builder()
-		//		                                  .orderNo(9)
+		//System.out.println("--updateOrders--");
+		//System.out.println(ordersDao.update(Orders.builder()
+		//		                                  .orderNo(8)
 		//		                                  .orderEndDate(new Date())
 		//		                                  .orderValid('F')
 		//		                                  .pNo(6)
 		//		                                  .corpId("corp_03")
-		//		                                  .userSeq(1)
+		//	                                      .userSeq(1)
 		//		                                  .build()));
 		
-		//System.out.println("--delete--");
+		//System.out.println("--deleteOrders--");
 		//System.out.println(ordersDao.delete(3));
 		
 		//System.out.println("--existOrders--");

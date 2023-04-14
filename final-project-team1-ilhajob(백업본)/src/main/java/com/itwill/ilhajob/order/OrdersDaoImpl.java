@@ -29,8 +29,8 @@ public class OrdersDaoImpl implements OrdersDao{
 	}
 			
 	@Override
-	public int insert(Orders orders) throws Exception {
-		return ordersMapper.insertOrders(orders);
+	public int update(Orders orders) throws Exception {
+		return ordersMapper.updateOrders(orders);
 	}
 	
 	@Override

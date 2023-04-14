@@ -10,7 +10,7 @@ public interface OrdersDao {
 	
 	List<Orders> findAllBySeq(int userSeq) throws Exception;
 	
-	int insert(Orders orders) throws Exception;
+	int update(Orders orders) throws Exception;
 	
 	int delete(int orderNo) throws Exception;
 	

@@ -14,13 +14,10 @@
         select * from orders where user_seq=#{userSeq}
     </select>
          
-    <insert id="insertOrders" parameterType="com.itwill.ilhajob.order.Orders">
-        <selectKey order="BEFORE" resultType="int" keyProperty="orderNo">
-            select orders_order_no_SEQ.nextval from dual
-        </selectKey>
-            insert into orders(order_no, order_end_date, order_valid, p_no, corp_id, user_seq)
-            values(#{orderNo}, #{orderEndDate}, #{orderValid}, #{pNo}, #{corpId}, #{userSeq}) 
-    </insert>
+    <update id="updateOrders" parameterType="com.itwill.ilhajob.order.Orders">     
+        update orders set order_no=#{orderNo}, order_end_date=#{orderEndDate},
+        order_valid=#{orderValid}, p_no=#{pNo}, user_seq=#{userSeq} where order_no=#{orderNo}
+    </update>
     
     <delete id="deleteOrders" parameterType="com.itwill.ilhajob.order.Orders">
           delete orders where order_no=#{orderNo} 

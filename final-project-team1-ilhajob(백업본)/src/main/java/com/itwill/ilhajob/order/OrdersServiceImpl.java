@@ -46,8 +46,8 @@ public class OrdersServiceImpl implements OrdersService{
 		
 	//insert orders
 	@Override
-	public int insertOrders(Orders orders) throws Exception {
-		return ordersDao.insert(orders);
+	public int updateOrders(Orders orders) throws Exception {
+		return ordersDao.update(orders);
 	}
 	
 	//delete orders

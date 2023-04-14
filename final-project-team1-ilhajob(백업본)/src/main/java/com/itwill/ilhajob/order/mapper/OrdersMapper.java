@@ -16,7 +16,7 @@ public interface OrdersMapper {
 	
 	public List<Orders> selectAllBySeq(int userSeq);
 	
-	public int insertOrders(Orders orders);
+	public int updateOrders(Orders orders);
 	
 	public int deleteOrders(int orderNo);
 	
