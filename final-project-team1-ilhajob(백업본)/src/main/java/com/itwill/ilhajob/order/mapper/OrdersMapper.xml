@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.ilhajob.order.mapper.OrdersMapper">
+
+    <select id="selectByNo" parameterType="int" resultType="com.itwill.ilhajob.order.Orders">
+        select * from orders where order_no=#{orderNo}   
+    </select>
+    
+    <select id="selectProductByNo" parameterType="int" resultType="com.itwill.ilhajob.order.Orders">
+        select * from orders where p_no=#{pNo}   
+    </select>   
+    
+    <select id="selectAllBySeq" resultType="com.itwill.ilhajob.order.Orders">
+        select * from orders where user_seq=#{userSeq}
+    </select>
+         
+    <insert id="insertOrders" parameterType="com.itwill.ilhajob.order.Orders">
+        <selectKey order="BEFORE" resultType="int" keyProperty="orderNo">
+            select orders_order_no_SEQ.nextval from dual
+        </selectKey>
+            insert into orders(order_no, order_end_date, order_valid, p_no, corp_id, user_seq)
+            values(#{orderNo}, #{orderEndDate}, #{orderValid}, #{pNo}, #{corpId}, #{userSeq}) 
+    </insert>
+    
+    <delete id="deleteOrders" parameterType="com.itwill.ilhajob.order.Orders">
+          delete orders where order_no=#{orderNo} 
+    </delete>
+    
+    <select id="existedOrders" parameterType="char" resultType="java.lang.Integer">
+          select count(*) cnt from orders where order_valid=#{orderValid}
+    </select>
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.ilhajob.payment.PaymentMapper">
+
+    <select id="selectByNo" parameterType="int" resultType="com.itwill.ilhajob.payment.Payment">
+        select * from payment where pay_seq=#{paySeq}
+    </select>
+    
+    <select id="selectOrderByNo" parameterType="int" resultType="com.itwill.ilhajob.payment.Payment">
+        select * from payment where order_no=#{orderNo}
+    </select>
+    
+    <select id="selectAll" resultType="com.itwill.ilhajob.payment.Payment">
+        select * from payment 
+    </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>
